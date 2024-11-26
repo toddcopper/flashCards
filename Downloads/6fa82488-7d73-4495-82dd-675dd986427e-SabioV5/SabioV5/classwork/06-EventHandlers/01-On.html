@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+	<meta name="referrer" content="unsafe-url" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Event Handlers</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    
+    <script src="https://pw.sabio.la/api/js/site"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+        .tree-blocks div.row {
+            padding-top: 5px;
+        }
+
+        .tree-blocks .col {
+            padding-bottom: 5px;
+        }
+
+        .person {
+            padding-top: 5px;
+        }
+
+        .person span {
+            /* border-bottom: #c45312 solid thin; */
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-00">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+    <div class="container main">
+        <div class="tree tree-blocks row justify-content-center pt-5">
+            <div class="col-md-10 col-sm-12 ">
+                <div class="tree row justify-content-center">
+                    <div class="col-md-12 col-sm-12 text-center shadow person" data-id="A1000">
+
+                        <span class="display-name">Alice</span>
+                        <div class="tree row justify-content-center">
+                            <div class="col text-center person " data-id="B1d00">
+
+                                <span class="display-name">Betty</span>
+                                <button type="button" class="btn btn-outline-primary btn-sm" id="B1d00">Select</button>
+                                <button type="button" class="btn btn-outline-danger btn-sm delete">Delete</button>
+                                <div class="row">
+                                    <div class="col text-center person " data-id="D13000">
+
+                                        <span class="display-name">Donna</span>
+                                        <button type="button"
+                                            class="btn btn-outline-primary btn-sm">Select</button><button type="button"
+                                            class="btn btn-outline-danger btn-sm delete">Delete</button>
+
+
+                                    </div>
+                                    <div class="col  text-center person">
+
+                                        <span class="display-name">Dan</span><button type="button"
+                                            class="btn btn-outline-primary btn-sm">Select</button><button type="button"
+                                            class="btn btn-outline-danger btn-sm delete">Delete</button>
+
+                                        <div class="row">
+                                            <div class="col  text-center person " data-id="E2000">
+
+                                                <span class="display-name">Emma</span>
+                                                <button type="button"
+                                                    class="btn btn-outline-primary btn-sm">Select</button>
+
+                                                <button type="button"
+                                                    class="btn btn-outline-danger btn-sm delete">Delete</button>
+                                            </div>
+                                            <div class="col  text-center person " data-id="E5000">
+
+                                                <span class="display-name">Elle</span>
+                                                <button type="button" class="btn btn-outline-primary btn-sm"
+                                                    id="noIdHelp">Select</button>
+                                                <button type="button"
+                                                    class="btn btn-outline-danger btn-sm delete">Delete</button>
+
+                                            </div>
+                                            <div class="col  text-center person " data-id="E51000">
+                                                <span class="display-name" id="E51000">Ed</span>
+                                                <button type="button" class="btn btn-outline-primary btn-sm"
+                                                    id="E51000">Select</button>
+                                                <button type="button"
+                                                    class="btn btn-outline-danger btn-sm delete">Delete</button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col  text-center person " data-id="D98000">
+                                        <span class="display-name">Dina</span>
+                                        <button type="button" class="btn btn-outline-primary btn-sm"
+                                            id="D98000">Select</button>
+                                        <button type="button"
+                                            class="btn btn-outline-danger btn-sm delete">Delete</button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+        function startUp()
+        {
+            // inspect("#E51000");
+            // inspect("#noIdHelp");
+        }
+
+        function inspect(buttonId)
+        {
+            var self = $(buttonId).closest('.person');
+            if (self.length === 0)
+            {
+                console.log("Cannot find in DOM");
+                return;
+            }
+
+            var parents = self.parents('.person');
+
+            var dName = self.find(".display-name").html();
+
+            var id = self.data("id");
+
+            var root = parents.last();
+
+            console.log({ name: dName });
+            console.log("self", self);
+            console.log("root", root);
+
+        }
+
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>

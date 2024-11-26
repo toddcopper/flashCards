@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+	<meta name="referrer" content="unsafe-url" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Populating Arrays with Data</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://pw.sabio.la/api/js/specs/Arrays/populating.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-08-populating" data-ins-css="false">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1>Populating Arrays with Data</h1>
+        <div id="team-members"></div>
+    </div>
+
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+        // Function expression to get a new team array
+        const getNewTeam = function() {
+            return [
+                {
+                    id: 1,
+                    firstName: 'John',
+                    lastName: 'Doe',
+                    email: 'john.doe@example.com',
+                    gender: 'Male',
+                    avatar: 'https://example.com/avatar1.png'
+                },
+                {
+                    id: 2,
+                    firstName: 'Jane',
+                    lastName: 'Smith',
+                    email: 'jane.smith@example.com',
+                    gender: 'Female',
+                    avatar: 'https://example.com/avatar2.png'
+                }
+            ];
+        };
+
+        // Function expression to add a new person to an array
+        const addPerson = function(anArray) {
+            const newPerson = {
+                id: anArray.length + 1,
+                firstName: 'Emily',
+                lastName: 'Jones',
+                email: 'emily.jones@example.com',
+                gender: 'Female',
+                avatar: 'https://example.com/avatar3.png'
+            };
+            anArray.push(newPerson);
+        };
+
+        // Function expression to remove a person from an array
+        const removePerson = function(indexOfPerson, anArray) {
+            if (indexOfPerson >= 0 && indexOfPerson < anArray.length) {
+                return anArray.splice(indexOfPerson, 1)[0];
+            }
+            return null; // Return null if index is out of bounds
+        };
+
+        // Function expression to log first names of all people in an array
+        const logNames = function(anArray) {
+            anArray.forEach(person => {
+                console.log(person.firstName);
+            });
+        };
+
+        // Function expression to find people with last name "Sabio"
+        const findSabio = function(people) {
+            return people.filter(person => person.lastName === 'Sabio');
+        };
+
+        // Example usage
+        const team = getNewTeam();
+        console.log('Initial Team:', team);
+
+        addPerson(team);
+        console.log('Team after adding new person:', team);
+
+        const removedPerson = removePerson(0, team);
+        console.log('Removed Person:', removedPerson);
+        console.log('Team after removing first person:', team);
+
+        console.log('Logging names:');
+        logNames(team);
+
+        const sabioMembers = findSabio(team);
+        console.log('Sabio Members:', sabioMembers);
+
+        // Example DOM manipulation
+        const teamMembersContainer = document.getElementById('team-members');
+        team.forEach(person => {
+            const memberDiv = document.createElement('div');
+            memberDiv.innerHTML = `
+                <h3>${person.firstName} ${person.lastName}</h3>
+                <p>Email: ${person.email}</p>
+                <p>Gender: ${person.gender}</p>
+                <img src="${person.avatar}" alt="Avatar">
+            `;
+            teamMembersContainer.appendChild(memberDiv);
+        });
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>

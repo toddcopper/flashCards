@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+	<meta name="referrer" content="unsafe-url" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Functions - Control Flow with Shipping</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://pw.sabio.la/api/js/specs/JavaScript-Functions/pw-03-01.tests.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-03-Shipping" data-ins-css="false">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+        // Declare a function expression named usps that accepts the following parameters: letters, speed.
+var usps = function(letters, speed) {
+    // Implementation logic here
+    if (letters.length > 5) {
+        fedEx(letters, null, 1000); // Invoke fedEx with null for boxes and 1000 for payment
+    }
+};
+
+// Declare a function expression named mailCarrier that accepts the following parameters: letter.
+var mailCarrier = function(letter) {
+    // Implementation logic here
+    var letters = [letter]; // Create an array with the single letter
+    usps(letters, "slow"); // Invoke usps with the array of letters and "slow" for speed
+};
+
+// Declare a function expression named fedEx that accepts the following parameters: letters, boxes, payment.
+// Declare a function expression named fedEx that accepts the following parameters: letters, boxes, payment.
+// Declare a function expression named fedEx that accepts the following parameters: letters, boxes, payment.
+// Declare a function expression named fedEx that accepts the following parameters: letters, boxes, payment.
+var fedEx = function(letters, boxes, payment) {
+    // Check if payment is undefined or null
+    if (payment === undefined || payment === null) {
+        return "Payment Required";
+    }
+    
+    // Check if payment is less than or equal to zero
+    if (payment <= 0) {
+        return "Payment Required";
+    }
+    
+    // Check if payment is less than 1000
+    if (payment < 1000) {
+        return "Payment Insufficient";
+    }
+    
+    // If payment is sufficient
+    return "OK";
+};
+
+
+
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>

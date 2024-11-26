@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+	<meta name="referrer" content="unsafe-url" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Templating</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <link href="https://pw.sabio.la/css/ext/shard/shards.css" rel="stylesheet" />
+    <link href="https://pw.sabio.la/css/ext/shard/shards-demo.css" rel="stylesheet" />
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-00">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+    <div class="page-content container">
+        <form>
+            <div id="colors" class="mb-5">
+
+                <div class="example col-md-10 ml-auto mr-auto">
+                    <div class="row" id="targetContainer">
+                        <div class="color-wrapper col-lg-3 col-md-6 col-sm-6 first primary">
+                            <div class="color">
+                                <div class="swatch bg-primary"></div>
+                                <button type="submit" class="btn btn-outline-primary btn-md">Primary</button>
+
+                            </div>
+                        </div>
+
+                        <div class="color-wrapper col-lg-3 col-md-6 col-sm-6 secondary">
+                            <div class="color">
+                                <div class="swatch bg-secondary"></div>
+                                <button type="button" class="btn btn-outline-secondary btn-md">secondary</button>
+                            </div>
+                        </div>
+
+                        <div class="color-wrapper col-lg-3 col-md-6 col-sm-6">
+                            <div class="color">
+                                <div class="swatch bg-success"></div>
+                                <button type="button" class="btn btn-outline-success btn-md">success</button>
+                            </div>
+                        </div>
+
+                        <div class="color-wrapper col-lg-3 col-md-6 col-sm-6">
+                            <div class="color">
+                                <div class="swatch bg-warning"></div>
+                                <button type="button" class="btn btn-outline-warning btn-md">warning</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+
+        var newColors = [
+            { text: "Hello", colorClass: "bg-warning", buttonClass: "btn-outline-warning" }
+            , { text: "World", colorClass: "bg-success", buttonClass: "btn-outline-success" }
+        ]
+
+        function startUp() {
+            console.log("start up is firing");
+            var wrapperContainer = $("#colors");
+            wrapperContainer.on("click", ".color-wrapper", onSelectItem)
+        }
+
+        function onSelectItem(e) {
+            e.preventDefault();
+
+            var thisItem = $(this);
+            selectItem(thisItem);
+            if (e.ctrlKey) {
+                cloneTagged();
+            }
+        }
+
+        function selectItem(itemToSelect) {
+            console.log("onSelectItem Firing", itemToSelect);
+            var wrapper = itemToSelect.closest(".color-wrapper");
+            wrapper.addClass("cloneTarget");
+        }
+
+        function cloneTagged() {
+            var clone = getClone();
+
+            addToContainer(clone);
+            $("#colors .color-wrapper").removeClass("cloneTarget");
+        }
+
+        function addToContainer(newChild) {
+            $("#targetContainer").append(newChild);
+        }
+
+        function getClone() {
+            var htmlFromCloneTarget = $(".cloneTarget").clone();
+
+            htmlFromCloneTarget.removeAttr("id");
+
+            return htmlFromCloneTarget;
+        }
+
+        var people = [
+            {
+                photo: "https://stage-prework.sabio.la/images/stock-photos/1.jpg"
+                , name: "Ice King"
+                , heading: "Winter is coming"
+                , bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco "
+            }
+
+            , {
+                photo: "https://stage-prework.sabio.la/images/stock-photos/2.jpg"
+                , name: "Jamie"
+                , heading: "A Lannister always pays his debts"
+                , bio: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            {
+                photo: "https://stage-prework.sabio.la/images/stock-photos/3.jpg"
+                , name: "Ygritte"
+                , heading: "You know nothing, Jon Snow."
+                , bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco "
+            }, {
+                photo: "https://stage-prework.sabio.la/images/stock-photos/3bw.jpg"
+                , name: "Theon"
+                , heading: "What is dead may never die"
+                , bio: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            }
+
+        ]
+
+    </script>
+
+    <script id="template" type="text/html">
+
+      <div class="color-wrapper col-lg-3 col-md-6 col-sm-6">
+            <div class="color">
+                <div class="swatch"></div>
+                <button type="button" class="btn  btn-md"></button>
+            </div>
+        </div>
+
+    </script>
+    <script id="templatePeople" type="text/html">
+
+     <div class="card col-6">
+        <img class="card-img-top" src="" alt="">
+        <div class="card-body">
+            <h4 class="card-title">I am First</h4>
+            <p class="card-text">May the Father judge him justly. The winds of Winter. A forked
+                purple
+                lightning bolt, on black field speckled with
+                four-pointed stars. The North remembers. May the Father judge him justly.</p>
+
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
+
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>

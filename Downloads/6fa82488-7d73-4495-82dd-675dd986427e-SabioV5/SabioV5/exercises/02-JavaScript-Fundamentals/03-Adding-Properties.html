@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+    <meta name="referrer" content="unsafe-url" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Adding Properties to An Object</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://pw.sabio.la/api/js/specs/JavaScript-Objects-Fundamentals/pw-2-Object-Properties.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-02-AddingProperties" data-ins-css="false">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+        // Declare a variable named myCar that has the same properties as templateCar
+        var myCar = {
+            make: "Honda",
+            model: "Accord",
+            year: 2019,
+            transmission: "Automatic"
+        };
+
+        // Declare a global variable named aCar as an object with no properties
+        var aCar = {};
+
+        // Declare a function name getCar that will return an object with only 1 property: year. You should set it to an integer.
+        function getCar() {
+            return { year: 2022 };
+        }
+
+        // Declare a function name addTransmission that will add a transmission property to the global variable named aCar
+        function addTransmission() {
+            aCar.transmission = "Automatic";
+        }
+
+        // Declare a function name addMakeModel that will add make and model properties to the global variable named aCar
+        function addMakeModel() {
+            aCar.make = "Toyota";
+            aCar.model = "Camry";
+        }
+
+        // Declare a function named getTransmission that will return the transmission property of global variable named aCar
+        function getTransmission() {
+            return aCar.transmission;
+        }
+
+        // Declare a function named getModel that will return the model property of global variable named aCar
+        function getModel() {
+            return aCar.model;
+        }
+
+        // Example usage for verification
+        console.log("myCar:", myCar);
+        console.log("getCar():", getCar());
+        console.log("aCar before adding properties:", aCar);
+        addTransmission();
+        console.log("aCar after adding transmission:", aCar);
+        addMakeModel();
+        console.log("aCar after adding make and model:", aCar);
+        console.log("Transmission of aCar:", getTransmission());
+        console.log("Model of aCar:", getModel());
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>

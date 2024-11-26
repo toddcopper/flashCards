@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPACEMAN</title>
+    <link rel="stylesheet" href = "style.css">    
+    <link rel="icon" href="https://github.com/neal-garcia95/Spaceman/blob/master/images/ufo.png?raw=true">
+
+    <!--  Google fonts linked below -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Inconsolata&family=Maven+Pro:wght@400;800&display=swap" rel="stylesheet">
+    <!-------------------------------->
+</head>
+<body>
+    <header>
+        <p class="guesses">Guesses Left: </p>
+        <p class="guessesLeft">6</p>
+        <h1 id = "title">SPACEMAN</h1>
+        <h2 class= "description">Use the letters below to guess the <b>outer space</b> related word.<br> With every wrong guess, the alien charges up his tractor beam.<br> After <b>six guesses</b> the astronaut gets abducted!</bt></h2>
+    </header>
+
+    <main>
+        <div class = "gameover"></div>
+        <img src ="https://github.com/neal-garcia95/Spaceman/blob/master/images/ufo.png?raw=true" alt="UFO" class = "ufo">
+        <img src ="https://github.com/neal-garcia95/Spaceman/blob/master/images/Beam.png?raw=true" alt = "tractor beam" class = "beam">
+        <img src ="https://github.com/neal-garcia95/Spaceman/blob/master/images/astronaut.png?raw=true" alt="spaceman" class = "spaceman">
+    </main>
+
+    <footer>
+        <div id = "currentWord"></div>
+        <div id = "alphabetContainer"></div>
+        <div id = "hintWrapper">
+            <button class ="restart">Restart</button>
+            <button id ="hint">Hint</button>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

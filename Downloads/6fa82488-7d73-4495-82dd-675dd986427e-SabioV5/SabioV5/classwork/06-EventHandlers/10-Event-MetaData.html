@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+	<meta name="referrer" content="unsafe-url" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Using Event Data</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <link href="https://pw.sabio.la/css/ext/shard/shards.css" rel="stylesheet" />
+    <link href="https://pw.sabio.la/css/ext/shard/shards-demo.css" rel="stylesheet" />
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-00">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+    <div class="page-content container">
+        <form>
+            <div id="colors" class="mb-5">
+
+                <div class="example col-md-10 ml-auto mr-auto">
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-outline-primary btn-md" id="cmdClone">Clone</button>
+                        </div>
+                    </div>
+                    <div class="row" id="targetContainer">
+                        <div class="color-wrapper col-lg-3 col-md-6 col-sm-6 first primary">
+                            <div class="color">
+                                <div class="swatch bg-primary"></div>
+                                <button type="submit" class="btn btn-outline-primary btn-md">Primary</button>
+
+                            </div>
+                        </div>
+
+                        <div class="color-wrapper col-lg-3 col-md-6 col-sm-6 secondary">
+                            <div class="color">
+                                <div class="swatch bg-secondary"></div>
+                                <button type="button" class="btn btn-outline-secondary btn-md">secondary</button>
+                            </div>
+                        </div>
+
+                        <div class="color-wrapper col-lg-3 col-md-6 col-sm-6">
+                            <div class="color">
+                                <div class="swatch bg-success"></div>
+                                <button type="button" class="btn btn-outline-success btn-md">success</button>
+                            </div>
+                        </div>
+
+                        <div class="color-wrapper col-lg-3 col-md-6 col-sm-6">
+                            <div class="color">
+                                <div class="swatch bg-warning"></div>
+                                <button type="button" class="btn btn-outline-warning btn-md">warning</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+
+
+        function startUp()
+        {
+            console.log("start up is firing");
+            $("#cmdClone").on("click", onCloneRequested);
+            $("#colors .color-wrapper").on("click", onSelectItem)
+        }
+
+        function onSelectItem(e)
+        {
+            e.preventDefault();
+            var thisItem = $(this);
+            console.log("onSelectItem Firing", thisItem);
+
+            var wrapper = thisItem.closest(".color-wrapper");
+            wrapper.addClass("cloneTarget");
+        }
+
+        function onCloneRequested(e)
+        {
+            e.preventDefault();
+            console.log("onClick Firing");
+
+            var clone = getClone();
+
+            addToContainer(clone);
+            $("#colors .color-wrapper").removeClass("cloneTarget");
+        }
+
+        function addToContainer(newChild)
+        {
+            $("#targetContainer").append(newChild);
+        }
+
+        function getClone()
+        {
+            var htmlFromCloneTarget = $(".cloneTarget").clone();
+
+            htmlFromCloneTarget.removeAttr("id");
+
+            return htmlFromCloneTarget;
+        }
+
+
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>

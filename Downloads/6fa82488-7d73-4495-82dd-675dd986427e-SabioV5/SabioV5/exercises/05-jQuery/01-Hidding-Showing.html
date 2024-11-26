@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+    <meta name="referrer" content="unsafe-url" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Showing & Hiding Content</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://pw.sabio.la/api/js/specs/jQuery/showing-hiding.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+    </style>
+</head>
+
+
+<body class="sabio" data-ins="pw-04-Showing_Hiding" data-ui="full-height" data-ins-css="false">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+    <div class="container main">
+
+        <div class="row">
+            <div class="col card text-white bg-primary m-2">
+                <div class="card-body">
+                    <h4 class="card-title">Hide using jQuery</h4>
+                    <p class="card-text">You can create anything that makes you happy.</p>
+                </div>
+            </div>
+
+            <div class="col card text-white bg-primary inv  m-2">
+                <div class="card-body">
+                    <h4 class="card-title">Make This Card Invisible</h4>
+                    <p class="card-text">Do not change the display property</p>
+                </div>
+            </div>
+
+            <div class="col card text-white bg-primary  m-2">
+                <div class="card-body">
+                    <h4 class="card-title">Leave This Card As-Is</h4>
+                    <p class="card-text">You can create anything that makes you happy.</p>
+                </div>
+            </div>
+
+            <div class="col card text-white bg-primary  m-2">
+                <div class="card-body">
+                    <h4 class="card-title">Last Card</h4>
+                    <p class="card-text">Paddle on both sides out of scope, but digital literacy.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+        // Function declaration for startUp
+        function startUp() {
+            // Call functions to execute on DOM ready
+            hideFirstCard();
+            makeInvisible();
+            hideLastCard();
+        }
+
+        // Function expression to hide the first card by changing display
+        var hideFirstCard = function() {
+            $('.card:first').hide(); // Using jQuery hide() method to hide the element
+        };
+
+        // Function expression to make the second card invisible without changing display property
+        var makeInvisible = function() {
+            $('.inv').css('visibility', 'hidden'); // Using jQuery css() method to change visibility
+        };
+
+        // Function expression to hide the last card by adding Bootstrap class d-none
+        var hideLastCard = function() {
+            $('.card:last').addClass('d-none'); // Using jQuery addClass() method to add d-none class
+        };
+
+        // Call startUp function when document is ready
+        $(document).ready(function() {
+            startUp();
+        });
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>

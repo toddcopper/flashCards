@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- #region Sabio Code - You can Fold this region to remove it from sight -->
+    <meta charset="utf-8" />
+	<meta name="referrer" content="unsafe-url" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Sabio Coding Bootcamp" />
+    <meta itemprop="image" content="https://sabio.la/Sabio.png">
+    <link rel="shortcut icon" href="https://sabio.la/Sabio.png">
+    <link rel="icon" type="image/png" href="https://sabio.la/Sabio.png" />
+    <!-- Do Not Change the HTML title or anything between this line and the line with the 💘's -->
+    <title>Traversing the DOM</title>
+    <link href="https://pw.sabio.la/dist/all-site.css" rel="stylesheet" />
+    
+
+    <script src="https://pw.sabio.la/api/js/site"></script>
+    <script src="https://pw.sabio.la/js/cw/traversing.js"></script>
+
+    <!-- #endregion -->
+    <!-- I 💘 Code, You 💘 Code, We all 💘 Code -->
+
+    <!-- 💡 All your CSS in here -->
+    <style>
+        /*Now the CSS*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tree ul {
+            padding-top: 20px;
+            position: relative;
+
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+        }
+
+        .tree li {
+            float: left;
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 5px 0 5px;
+
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+        }
+
+        /*We will use ::before and ::after to draw the connectors*/
+
+        .tree li::before,
+        .tree li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 1px solid #ccc;
+            width: 50%;
+            height: 20px;
+        }
+
+        .tree li::after {
+            right: auto;
+            left: 50%;
+            border-left: 1px solid #ccc;
+        }
+
+        /*We need to remove left-right connectors from elements without 
+any siblings*/
+        .tree li:only-child::after,
+        .tree li:only-child::before {
+            display: none;
+        }
+
+        /*Remove space from the top of single children*/
+        .tree li:only-child {
+            padding-top: 0;
+        }
+
+        /*Remove left connector from first child and 
+right connector from last child*/
+        .tree li:first-child::before,
+        .tree li:last-child::after {
+            border: 0 none;
+        }
+
+        /*Adding back the vertical connector to the last nodes*/
+        .tree li:last-child::before {
+            border-right: 1px solid #ccc;
+            border-radius: 0 5px 0 0;
+            -webkit-border-radius: 0 5px 0 0;
+            -moz-border-radius: 0 5px 0 0;
+        }
+
+        .tree li:first-child::after {
+            border-radius: 5px 0 0 0;
+            -webkit-border-radius: 5px 0 0 0;
+            -moz-border-radius: 5px 0 0 0;
+        }
+
+        /*Time to add downward connectors from parents*/
+        .tree ul ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: 1px solid #ccc;
+            width: 0;
+            height: 20px;
+        }
+
+        .tree li a {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #666;
+            font-family: arial, verdana, tahoma;
+            font-size: 11px;
+            display: inline-block;
+
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+        }
+
+        /*Time for some hover effects*/
+        /*We will apply the hover effect the the lineage of the element also*/
+        .tree li a:hover,
+        .tree li a:hover+ul li a {
+            background: #c8e4f8;
+            color: #000;
+            border: 1px solid #94a0b4;
+        }
+
+        /*Connector styles on hover*/
+        .tree li a:hover+ul li::after,
+        .tree li a:hover+ul li::before,
+        .tree li a:hover+ul::before,
+        .tree li a:hover+ul ul::before {
+            border-color: #94a0b4;
+        }
+
+        .tree li.ancestor-selected>a {
+            background: #ec5d09;
+            color: #000;
+            border: 1px solid #c45312;
+        }
+
+        .tree li.ancestor-selected.fp>a {
+
+            color: rgb(247, 236, 236);
+        }
+
+        .tree-blocks div.row {
+            padding-top: 5px;
+        }
+
+        .tree-blocks .col {
+            padding-bottom: 5px;
+        }
+
+        .person {
+            padding-top: 5px;
+        }
+
+        .person span {
+            /* border-bottom: #c45312 solid thin; */
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="sabio" data-ins="pw-00" data-ui="full-height">
+    <!-- Do Not Edit or Remove this nav element -->
+    <nav class="do-not-remove navbar navbar-expand-md navbar-dark bg-dark sabio"></nav>
+
+    <div class="container main">
+        <!--
+        We will create a family tree using just CSS(3)
+        The markup will be simple nested lists
+        -->
+        <div class="tree row justify-content-center">
+            <div class="col-md-8 col-sm-12 ">
+                <ul>
+                    <li>
+                        <a href="#">Alice (Parent)</a>
+                        <ul>
+                            <li>
+                                <a href="#">Bruce (Child)</a>
+                                <ul>
+                                    <li>
+                                        <a href="#">Chris (Grand Child)</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Betty (Child)</a>
+                                <ul>
+                                    <li><a href="#">Donna (GC)</a></li>
+                                    <li class="">
+                                        <a href="#">Dan (GC)</a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Emma (GGC)</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Elle (GGC)</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Ed (GGC)</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Dina (GC)</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tree tree-blocks row justify-content-center pt-5">
+            <div class="col-md-10 col-sm-12 ">
+                <div class="tree row justify-content-center">
+                    <div class="col-md-12 col-sm-12 text-center shadow person" data-id="A1000">
+
+                        <span class="display-name">Alice</span>
+                        <div class="tree row justify-content-center">
+                            <div class="col-3  text-center person " data-id="B1000">
+
+                                <span class="display-name">Bruce</span>
+                                <button type="button" class="btn btn-outline-primary btn-sm">Select</button>
+                                <div class="col  text-center person " data-id="C1000">
+
+                                    <span class="display-name">Chris</span>
+                                    <button type="button" class="btn btn-outline-primary btn-sm"
+                                        id="C1000">Select</button>
+
+                                </div>
+                            </div>
+                            <div class="col-9 text-center person " data-id="B1d00">
+
+                                <span class="display-name">Betty</span>
+                                <button type="button" class="btn btn-outline-primary btn-sm" id="B1d00">Select</button>
+                                <div class="row">
+                                    <div class="col-3 text-center person " data-id="D13000">
+
+                                        <span class="display-name">Donna</span>
+                                        <button type="button" class="btn btn-outline-primary btn-sm">Select</button>
+
+
+                                    </div>
+                                    <div class="col-6  text-center person">
+
+                                        <span class="display-name">Dan</span><button type="button"
+                                            class="btn btn-outline-primary btn-sm">Select</button>
+
+                                        <div class="row">
+                                            <div class="col  text-center person " data-id="E2000">
+
+                                                <span class="display-name">Emma</span>
+                                                <button type="button"
+                                                    class="btn btn-outline-primary btn-sm">Select</button>
+
+
+                                            </div>
+                                            <div class="col  text-center person " data-id="E5000">
+
+                                                <span class="display-name">Elle</span>
+                                                <button type="button" class="btn btn-outline-primary btn-sm"
+                                                    id="noIdHelp">Select</button>
+
+
+                                            </div>
+                                            <div class="col  text-center person " data-id="E51000">
+                                                <span class="display-name" id="E51000">Ed</span>
+                                                <button type="button" class="btn btn-outline-primary btn-sm"
+                                                    id="E51000">Select</button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col  text-center person " data-id="D98000">
+                                        <span class="display-name">Dina</span>
+                                        <button type="button" class="btn btn-outline-primary btn-sm"
+                                            id="D98000">Select</button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Do Not Edit or Remove this footer element -->
+    <footer class="do-not-remove container-fluid footer mx-auto  fb-targert sabio">
+        <p class="text-center">© Sabio.la 2019</p>
+    </footer>
+
+    <!--👇🏻 All your JavaScript code goes below here inside this script tag 👇🏻 -->
+    <script id="candidateCode">
+
+    </script>
+    <!-- 🛑 Do Not Write Any Code Below here -->
+</body>
+
+</html>
